@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+@import './variable.scss';
+
+h1 {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 3.33px;
+
+    @media(min-width: $desktop) {
+        font-size: 40px;
+        line-height: 48px;
+        letter-spacing: 4.17px;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 25px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+h4 {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 15px;
+    line-height: 25px;
+}
