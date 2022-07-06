@@ -1,0 +1,45 @@
+@import './variable.scss';
+@import './typography.scss';
+
+.btn {
+    font-size: 12px;
+    letter-spacing: 2px;
+    border: none;
+    padding: 12px 24px;
+
+    &--primary-dark {
+        color: $pureWhite;
+        background-color: $pureBlack;
+
+        &:hover {
+            background-color: $lightGrey;
+            color: $pureBlack;
+        }
+    }
+
+    &--primary-light {
+        color: $pureBlack;
+        background-color: $pureWhite;
+
+        &:hover {
+            background-color: $lightGrey;
+            color: $pureBlack;
+        }
+    }
+
+    &--secondary-dark {
+        color: $pureBlack;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &--secondary-light {
+        color: $pureWhite;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

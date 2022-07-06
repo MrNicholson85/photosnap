@@ -1,30 +1,38 @@
 <template>
   <h1>{{title}}</h1>
-  <input type="text" ref="name">
-  <button @click="handleClick">click me</button>
+  <div v-if="showModal">
+      <Modal :header="header" :content="content" theme="sale" @close="toggleModal"/>
+  </div>
+  <button @click="toggleModal">Open Modal</button>
 </template>
 
 <script>
+  import Modal from './components/Modal.vue'
+
   export default {
     name: 'App',
+    components: { Modal },
     data() {
       return {
-        title: 'my first post'
+        title: 'my first post',
+        header: 'Sign up!',
+        content: 'here',
+        showModal: false
       }
     },
     methods: {
-      handleClick() {
-        console.log(this.$refs.name)
-        this.$refs.name.classList.add('foo');
-        this.$refs.name.focus()
+      toggleModal() {
+        this.showModal = !this.showModal
       }
     }
-  }
+  }  
 </script>
 
-<style>
+<style lang="scss">
+@import './assets/styles/variable.scss';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: $DMSans;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

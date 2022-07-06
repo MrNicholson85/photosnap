@@ -1,24 +1,43 @@
 <template>
-    <div class="backdrop">
-        <div class="modal">
-            <p>COntent here</p>
+    <div class="backdrop" @click="closeModal">
+        <div class="modal" :class="{sale: theme === 'sale'}">
+            <h1>{{ header }}</h1>
+            <p>{{ content }}</p>
+            <button class="btn btn--secondary-dark">Button 1</button>
         </div>
     </div>
 </template>
-
-<style> 
+<script>
+    export default {
+        props: ['header', 'content', 'theme'],
+        methods: {
+            closeModal() {
+                this.$emit('close')
+            }
+        }
+    }
+</script>
+<style lang="scss" scoped> 
     .modal {
-        widht: 400px;
+        width: 400px;
         padding: 20px;
         margin: 100px auto;
         background: white;
         border-radius: 10px;
+
+        &.sale {
+            background-color: red;
+            color: white;
+        }
     }
 
     .backdrop {
         top: 0;
-        position: rgba(0,0,0,0.5);
+        position: fixed;
+        background: rgba(0,0,0,0.5);
         width: 100%;
         height: 100%;
     }
+
+
 </style>
