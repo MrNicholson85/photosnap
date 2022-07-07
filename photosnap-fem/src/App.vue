@@ -1,6 +1,9 @@
 <template>
   <h1>{{title}}</h1>
-  <Modal :header="header" :content="content"/>
+  <div v-if="showModal">
+      <Modal :header="header" :content="content" theme="sale" @close="toggleModal"/>
+  </div>
+  <button @click="toggleModal">Open Modal</button>
 </template>
 
 <script>
@@ -14,6 +17,12 @@
         title: 'my first post',
         header: 'Sign up!',
         content: 'here',
+        showModal: false
+      }
+    },
+    methods: {
+      toggleModal() {
+        this.showModal = !this.showModal
       }
     }
   }  
