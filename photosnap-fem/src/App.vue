@@ -1,6 +1,19 @@
 <template>
-  <h1>{{title}}</h1>
-  <Modal :header="header" :content="content"/>
+  <div>
+    <h1>{{title}}</h1>
+    <div v-if="showModal">
+        <Modal theme="sale" @close="toggleModal">
+            <template v-slot:links>
+              <a href="">One</a>
+              <a href="">Two</a>
+            </template>
+            <h1>Header</h1>
+            <p>Content</p>
+            <button class="btn btn--secondary-dark">Button 1</button>
+        </Modal>
+    </div>
+    <button @click="toggleModal">Open Modal</button>
+  </div>
 </template>
 
 <script>
@@ -14,6 +27,12 @@
         title: 'my first post',
         header: 'Sign up!',
         content: 'here',
+        showModal: false
+      }
+    },
+    methods: {
+      toggleModal() {
+        this.showModal = !this.showModal
       }
     }
   }  
