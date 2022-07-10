@@ -2,14 +2,17 @@
    <nav class="navbar-nav">
     <div class="navbar-nav__logo-menu">
       <router-link to="/"><img class="" :src="logoImage" /></router-link>
-      <div class="navbar-nav__menu-toggle" v-if="isMobile()">toggle menu</div>
+      <div
+        class="navbar-nav__menu-toggle"
+        :class="[navToggler ? 'navbar-nav--toggle-close' : 'navbar-nav--toggle-open']"
+        @click="navToggler = !navToggler" v-if="isMobile()"></div>
     </div>
-    <div class="navbar-nav__links">
+    <div class="navbar-nav__links" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">
       <router-link :to="{ name: 'Stories' }">Stories</router-link>
       <router-link :to="{ name: 'Features'}">Features</router-link>
       <router-link :to="{ name: 'Pricing'}">Pricing</router-link>
     </div>
-    <router-link to="*" class="btn btn--primary-dark">Get an invite</router-link>
+    <router-link to="*" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
   </nav>
 </template>
 <script>
@@ -19,7 +22,8 @@ export default {
     name: 'App',
     data () {
         return {
-            logoImage
+            logoImage,
+            navToggler: true,
         }
     },
     methods: {
@@ -36,31 +40,113 @@ export default {
     @import '../assets/styles/buttons.scss';
 
     .navbar-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 72px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px;
 
-    &__links {
-        display: flex;
-        gap: 37px;
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: bold;
+        @media(min-width: $tablet) {
+            display: flex;
+            height: 72px;
+        }
 
-        a {
-        color: $pureBlack;
-        transition: all .2s ease-in-out;
-        text-decoration: none;
-        letter-spacing: 2px;
+        &--nav-close {
+            display: none;
+            
+            @media(min-width: $tablet) {
+                display: grid;
+            }
+        }
 
-        &:hover {
-            color: $lightGrey;
+        &--nav-open {
+            display: grid;
         }
-        &.router-link-exact-active {
-            color: $pureBlack;
+
+        &--toggle-close {
+            position: relative;
+            height: 6px;
+            width: 20px;
+            
+            &::before {
+                content: "";
+                height: 2px;
+                width: 20px;
+                background-color: $pureBlack;
+                position: absolute;
+            }
+
+            &::after {
+                top: 5px;
+                content: "";
+                height: 2px;
+                width: 20px;
+                background-color: $pureBlack;
+                position: absolute;
+            }
         }
+
+        &--toggle-open {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            
+            &::before {
+                content: "";
+                height: 2px;
+                width: 20px;
+                background-color: $pureBlack;
+                position: absolute;
+                transform: rotateZ(-45deg) scaleX(1) translate(-6px, 6px);
+            }
+
+            &::after {
+                top: 5px;
+                content: "";
+                height: 2px;
+                width: 20px;
+                background-color: $pureBlack;
+                position: absolute;
+                transform: rotateZ(45deg) scaleX(1) translate(3px, 3px);
+            }
         }
-    }
+
+        &__links {
+            gap: 20px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px $lightGrey solid;
+            margin-bottom: 20px;
+
+            @media(min-width: $tablet) {
+                display: flex;
+                text-align: left;
+                gap: 37px;
+                border-bottom: none;
+            }
+
+            a {
+                color: $pureBlack;
+                transition: all .2s ease-in-out;
+                text-decoration: none;
+                letter-spacing: 2px;
+
+                &:hover {
+                    color: $lightGrey;
+                }
+                &.router-link-exact-active {
+                    color: $pureBlack;
+                }
+            }
+        }
+
+        &__logo-menu {
+            display: flex;
+            justify-content: space-between;
+            padding: 28px 0px;
+            align-items: center;
+        }
     }
 </style>
