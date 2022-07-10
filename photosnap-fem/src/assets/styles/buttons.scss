@@ -6,10 +6,13 @@
     letter-spacing: 2px;
     border: none;
     padding: 12px 24px;
+    text-transform: uppercase;
+    transition: all .2s ease-in-out;
 
     &--primary-dark {
         color: $pureWhite;
         background-color: $pureBlack;
+        text-decoration: none;
 
         &:hover {
             background-color: $lightGrey;

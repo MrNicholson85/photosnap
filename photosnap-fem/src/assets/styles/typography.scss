@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 @import './variable.scss';
 
+body {
+    font-family: $DMSans;
+}
+
 h1 {
     font-size: 32px;
     line-height: 40px;
