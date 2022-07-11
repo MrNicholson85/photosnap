@@ -1,5 +1,5 @@
 <template>
-    <div class="SixtyForty" :class="{sale: theme === 'sale'}">
+    <div class="SixtyForty" :class="{imgLeft: theme === 'imgLeft'}">
         <div class="SixtyForty__columns">
             <div class="SixtyForty__left">
                 <slot class="SixtyForty__title" name="title">Module Title</slot>
@@ -32,6 +32,8 @@
     .SixtyForty {
         background-color: $pureBlack;
         color: $pureWhite;
+        max-height: 650px;
+        overflow: hidden;
 
         &__columns {
             display: grid;
@@ -45,7 +47,7 @@
                 position: absolute;
                 left: 0;
                 width: 6px;
-                height: 341px;
+                height: 304px;
                 background: $mainAccent;
             }
         }
@@ -60,10 +62,12 @@
 
         &__left {
             position: relative;
-            padding-right: 111px;
+            padding: 0 111px;
 
             h1 {
+                display: block;
                 width: 387px;
+                margin-top: 0;
             }
 
             p {
@@ -73,8 +77,11 @@
             }
 
             a {
+                display: flex;
+                gap: 18px;
                 color: $pureWhite;
                 text-decoration: none;
+                font-size: 12px;
                 letter-spacing: 2px;
 
                 &:hover {
