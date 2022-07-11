@@ -1,5 +1,5 @@
 <template lang="">
-   <nav class="navbar-nav">
+   <nav class="navbar-nav container">
     <div class="navbar-nav__logo-menu">
       <router-link to="/"><img class="" :src="logoImage" /></router-link>
       <div

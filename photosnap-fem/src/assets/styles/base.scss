@@ -5,17 +5,18 @@ body {
     margin: 0;
     
     #app {
-        width: 100%;
-        max-width: $mobile;
-        margin: 0 auto;
-        background-color: $pureWhite;
-      
-          @media(min-width: $tablet) {
-          max-width: $tablet;
-        }
-      
-        @media(min-width: $desktop) {
-          max-width: $desktop;
+        .container {
+          width: 100%;
+          max-width: 1110px;
+          margin: 0 auto;
+
+          @media (min-width: $tablet) {
+            max-width: 686px;
+          }
+
+          @media (min-width: $desktop) {
+            max-width: 1110px;
+          }
         }
     }
 }
