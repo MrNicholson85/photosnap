@@ -37,18 +37,29 @@
 
         &__columns {
             display: grid;
-            grid-template-columns: 610px auto;
-            width: $desktop;
+            width: $mobile;
             margin: 0 auto;
             align-items: center;
 
+            @media(min-width: $desktop) {
+                width: $desktop;
+                grid-template-columns: 610px auto;
+            }
+
             &::before {
+                position: relative;
                 content: '';
-                position: absolute;
-                left: 0;
-                width: 6px;
-                height: 304px;
                 background: $mainAccent;
+                width: 128px;
+                height: 6px;
+                left: 33px;
+
+                @media(min-width: $desktop) {
+                    position: absolute;
+                    left: 0;
+                    width: 6px;
+                    height: 304px;
+                }
             }
         }
 
@@ -57,17 +68,28 @@
 
             img {
                 object-fit: cover;
+            width : 100%;
             }
         }
 
         &__left {
             position: relative;
-            padding: 0 111px;
+            padding: 72px 33px;
+
+            @media (min-width: $desktop) {
+                padding: 0 111px;
+            }
 
             h1 {
                 display: block;
-                width: 387px;
                 margin-top: 0;
+                margin-left: 0;
+                margin-right: 0;
+                width: 318px;
+
+                @media (min-width: $desktop) {
+                    width: 387px;
+                }
             }
 
             p {
