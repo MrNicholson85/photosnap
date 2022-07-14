@@ -14,6 +14,7 @@
         <img :src="createImage" />
       </template>
     </Hero>
+
     <ContentImage theme="imgLeft">
       <template #title>
         <h1>BEAUTIFUL STORIES EVERY TIME</h1>
@@ -44,7 +45,7 @@
       </template>
     </ContentImage>
 
-    
+    <Stories />
   </div>
 </template>
 
@@ -54,11 +55,13 @@ import storyImage1 from '../assets/images/beautiful-stories.jpg';
 import storyImage2 from '../assets/images/designed-for-everyone.jpg';
 import arrowWhite from '../assets/images/arrow-white.svg';
 import arrowBlack from '../assets/images/arrow.svg';
+
 import Hero from '@/components/Hero.vue';
-import ContentImage from '@/components/ContentImage.vue'
+import ContentImage from '@/components/ContentImage.vue';
+import Stories from '@/components/Stories.vue';
 
 export default {
-  components: {Hero, ContentImage},
+  components: {Hero, ContentImage, Stories},
   data () {
       return {
           createImage,
