@@ -12,7 +12,7 @@
       <router-link :to="{ name: 'Features'}">Features</router-link>
       <router-link :to="{ name: 'Pricing'}">Pricing</router-link>
     </div>
-    <router-link to="*" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
+    <router-link to="/" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
   </nav>
 </template>
 <script>
@@ -42,7 +42,6 @@ export default {
     .navbar-nav {
         justify-content: space-between;
         align-items: center;
-        padding: 0 24px;
 
         @media(min-width: $tablet) {
             display: flex;
@@ -145,7 +144,7 @@ export default {
         &__logo-menu {
             display: flex;
             justify-content: space-between;
-            padding: 28px 0px;
+            padding: 28px 24px;
             align-items: center;
         }
     }
