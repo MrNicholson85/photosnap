@@ -4,14 +4,14 @@
             <div class="footer__col-1">
                 <div class="footer__logo"><img :src="footerLogo"/></div>
                 <div class="footer__social-icons">
-                    <ul>
-                        <li><img :src="fbIcon"/></li>
-                    </ul>
+                    <div v-for="icons in footerIcons">
+                        <img :src="icons.icon"/>
+                    </div>
                 </div>
             </div>
             <div class="footer__col-2">
                 <div class="footer__nav">
-                    <div class="footer__nav--inks" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">
+                    <div class="footer__nav--inks">
                         <router-link to="/">Home</router-link>
                         <router-link :to="{ name: 'Stories' }">Stories</router-link>
                         <router-link :to="{ name: 'Features'}">Features</router-link>
@@ -42,7 +42,14 @@
             return {
                 footerLogo,
                 ctaArrow,
-                fbIcon
+                fbIcon,
+                footerIcons: [
+                    {title: 'facebook', icon: require('../assets/images/facebook.svg')},
+                    {title: 'youtube', icon: require('../assets/images/youtube.svg')},
+                    {title: 'twitter', icon: require('../assets/images/twitter.svg')},
+                    {title: 'pintrest', icon: require('../assets/images/pinterest.svg')},
+                    {title: 'instagram', icon: require('../assets/images/instagram.svg')},
+                ],
             }
         }
     }
@@ -61,13 +68,36 @@
 
         &__col-1 {
             display: grid;
+            row-gap: 85px;
         }
 
-        &__col-2 {
-
+        &__social-icons {
+            display: flex;
+            gap: 13.33px
         }
 
-        &__col-3 {
+        &__nav--inks {
+            display: grid;
+            row-gap: 20px;
+            
+            a {
+                color: $pureWhite;
+                text-decoration: none;
+                text-transform: uppercase;
+                opacity: 1;
+                transition: all .2s ease-in-out;
+                font-size: 12px;
+                letter-spacing: 2px;
+
+                &:hover {
+                    opacity: .3;
+                }
+            }
+        }
+
+        &__content {
+            display: grid;
+            row-gap: 85px;
             text-align: right;
         }
     }
