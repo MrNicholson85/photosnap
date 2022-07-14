@@ -1,12 +1,17 @@
 <template>
-    <div class="SixtyForty" :class="{imgLeft: theme === 'imgLeft'}">
-        <div class="SixtyForty__columns">
-            <div class="SixtyForty__left">
-                <slot class="SixtyForty__title" name="title">Module Title</slot>
-                <slot class="SixtyForty__content" name="content">Module Content</slot>
-                <slot class="SixtyForty__link" name="link">Module Link</slot>
+    <div class="ContentImage" :class="{imgLeft: theme === 'imgLeft'}">
+        <div class="ContentImage__columns">
+            <div v-if="theme !== imgLeft" class="ContentImage__right">
+                <slot name="image">
+                   <img :src="createImage" />
+                </slot>
             </div>
-            <div class="SixtyForty__right">
+            <div class="ContentImage__left">
+                <slot class="ContentImage__title" name="title">Module Title</slot>
+                <slot class="ContentImage__content" name="content">Module Content</slot>
+                <slot class="ContentImage__link" name="link">Module Link</slot>
+            </div>
+            <div v-if="theme === imgLeft" class="ContentImage__right">
                 <slot name="image">
                    <img :src="createImage" />
                 </slot>
@@ -29,11 +34,21 @@
 <style lang="scss">
     @import '../assets/styles/variable.scss';
     
-    .SixtyForty {
-        background-color: $pureBlack;
-        color: $pureWhite;
-        max-height: 650px;
+    .ContentImage {
+        background-color: $pureWhite;
+        color: $pureBlack;
+        max-height: 600px;
         overflow: hidden;
+
+        &.imgLeft {
+            .ContentImage__columns {
+                grid-template-columns: 830px auto;
+
+                a {
+                    color: $pureBlack;
+                }
+            }
+        }
 
         &__columns {
             display: grid;
@@ -41,15 +56,6 @@
             width: $desktop;
             margin: 0 auto;
             align-items: center;
-
-            &::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                width: 6px;
-                height: 304px;
-                background: $mainAccent;
-            }
         }
 
         &__right {
@@ -79,7 +85,7 @@
             a {
                 display: flex;
                 gap: 18px;
-                color: $pureWhite;
+                color: $pureBlack;
                 text-decoration: none;
                 font-size: 12px;
                 letter-spacing: 2px;

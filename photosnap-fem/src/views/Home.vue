@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <SixtyForty>
+    <Hero>
       <template #title>
         <h1>Create and share your photo stories.</h1>
       </template>
@@ -8,25 +8,67 @@
         <p>Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.</p>
       </template>
       <template #link>
-        <a href="#">GET AN INVITE <span><img :src="arrowLink"/></span></a>
+        <a href="#">GET AN INVITE <span><img :src="arrowWhite"/></span></a>
       </template>
       <template #image>
         <img :src="createImage" />
       </template>
-    </SixtyForty>
+    </Hero>
+
+    <ContentImage theme="imgLeft">
+      <template #title>
+        <h1>BEAUTIFUL STORIES EVERY TIME</h1>
+      </template>
+      <template #content>
+        <p>We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.</p>
+      </template>
+      <template #link>
+        <a href="#">VIEW THE STORIES <span><img :src="arrowBlack"/></span></a>
+      </template>
+      <template #image>
+        <img :src="storyImage1" />
+      </template>
+    </ContentImage>
+    
+    <ContentImage>
+      <template #title>
+        <h1>Create and share your photo stories.</h1>
+      </template>
+      <template #content>
+        <p>Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.</p>
+      </template>
+      <template #link>
+        <a href="#">GET AN INVITE <span><img :src="arrowBlack"/></span></a>
+      </template>
+      <template #image>
+        <img :src="storyImage2" />
+      </template>
+    </ContentImage>
+
+    <Stories />
   </div>
 </template>
 
 <script>
 import createImage from '../assets/images/create-and-share.jpg';
-import arrowLink from '../assets/images/arrow-white.svg';
-import SixtyForty from '@/components/SixtyForty.vue';
+import storyImage1 from '../assets/images/beautiful-stories.jpg';
+import storyImage2 from '../assets/images/designed-for-everyone.jpg';
+import arrowWhite from '../assets/images/arrow-white.svg';
+import arrowBlack from '../assets/images/arrow.svg';
+
+import Hero from '@/components/Hero.vue';
+import ContentImage from '@/components/ContentImage.vue';
+import Stories from '@/components/Stories.vue';
+
 export default {
-  components: {SixtyForty},
+  components: {Hero, ContentImage, Stories},
   data () {
       return {
           createImage,
-          arrowLink
+          storyImage1,
+          storyImage2,
+          arrowWhite,
+          arrowBlack
       }
   },
 }
