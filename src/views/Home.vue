@@ -26,7 +26,7 @@
         <a href="#">VIEW THE STORIES <span><img :src="arrowBlack"/></span></a>
       </template>
       <template #image>
-        <img :src="storyImage1" />
+        <div :style="{ backgroundImage: `url(${storyImage1})` }"></div>
       </template>
     </ContentImage>
     

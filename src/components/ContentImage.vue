@@ -12,8 +12,7 @@
                 <slot class="ContentImage__link" name="link">Module Link</slot>
             </div>
             <div v-if="theme === imgLeft" class="ContentImage__right">
-                <slot name="image">
-                   <img :src="createImage" />
+                <slot name="image" :style="{ backgroundImage: `url(${createImage})` }">
                 </slot>
             </div>
         </div>

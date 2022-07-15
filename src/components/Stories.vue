@@ -32,10 +32,14 @@ export default {
 
     .stories {
         display: grid;
-        grid-template-columns: repeat(5, 25%);
+        grid-template-columns: 100%;
         height: 500px;
-        width: 1440px;
         margin: 0 auto;
+
+        @media(min-width: $desktop) {
+            grid-template-columns: repeat(5, 25%);
+            width: $desktop;
+        }
 
 
         &__item {
