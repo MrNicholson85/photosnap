@@ -41,7 +41,7 @@
             margin: 0 auto;
             align-items: center;
 
-            @media(min-width: $desktop) {
+            @media(min-width: $tablet) {
                 width: $desktop;
                 grid-template-columns: 610px auto;
             }
@@ -54,7 +54,7 @@
                 height: 6px;
                 left: 33px;
 
-                @media(min-width: $desktop) {
+                @media(min-width: $tablet) {
                     position: absolute;
                     left: 0;
                     width: 6px;
@@ -76,7 +76,7 @@
             position: relative;
             padding: 72px 33px;
 
-            @media (min-width: $desktop) {
+            @media (min-width: $tablet) {
                 padding: 0 111px;
             }
 
@@ -87,7 +87,7 @@
                 margin-right: 0;
                 width: 318px;
 
-                @media (min-width: $desktop) {
+                @media (min-width: $tablet) {
                     width: 387px;
                 }
             }

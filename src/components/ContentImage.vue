@@ -2,8 +2,7 @@
     <div class="ContentImage" :class="{imgLeft: theme === 'imgLeft'}">
         <div class="ContentImage__columns">
             <div v-if="theme !== imgLeft" class="ContentImage__right">
-                <slot name="image">
-                   <img :src="createImage" />
+                <slot name="image" :style="{ backgroundImage: `url(${createImage})` }">
                 </slot>
             </div>
             <div class="ContentImage__left">
@@ -36,8 +35,12 @@
     .ContentImage {
         background-color: $pureWhite;
         color: $pureBlack;
-        max-height: 600px;
+        max-height: 690px;
         overflow: hidden;
+
+        @media (min-width: $tablet) {
+            max-height: 600px;
+        }
 
         &.imgLeft {
             .ContentImage__columns {
@@ -46,22 +49,36 @@
                 a {
                     color: $pureBlack;
                 }
+
+                .ContentImage__right {
+                    div {
+                        height: 690px;
+
+                        @media (min-width: $tablet) {
+                            max-height: 600px;
+                        }
+                    }
+                }
             }
         }
 
         &__columns {
-            display: grid;
-            grid-template-columns: 610px auto;
+            display: block;
             width: $desktop;
             margin: 0 auto;
             align-items: center;
+
+            @media (min-width: $tablet) {
+                 display: grid;
+                grid-template-columns: 610px auto;
+            }
         }
 
         &__right {
             position: relative;
 
-            img {
-                object-fit: cover;
+            div {
+                height: 600px;
             }
         }
 

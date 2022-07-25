@@ -41,11 +41,13 @@
         <a href="#">GET AN INVITE <span><img :src="arrowBlack"/></span></a>
       </template>
       <template #image>
-        <img :src="storyImage2" />
+        <div :style="{ backgroundImage: `url(${storyImage2})` }"></div>
       </template>
     </ContentImage>
 
     <Stories />
+
+    <services/>
   </div>
 </template>
 
@@ -59,9 +61,10 @@ import arrowBlack from '../assets/images/arrow.svg';
 import Hero from '@/components/Hero.vue';
 import ContentImage from '@/components/ContentImage.vue';
 import Stories from '@/components/Stories.vue';
+import Services from '@/components/Services.vue';
 
 export default {
-  components: {Hero, ContentImage, Stories},
+  components: {Hero, ContentImage, Stories, Services},
   data () {
       return {
           createImage,
