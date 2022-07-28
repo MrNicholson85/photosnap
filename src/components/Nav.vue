@@ -8,11 +8,13 @@
         @click="navToggler = !navToggler" v-if="isMobile()"></div>
     </div>
     <div class="navbar-nav__links" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">
-      <router-link :to="{ name: 'Stories' }">Stories</router-link>
-      <router-link :to="{ name: 'Features'}">Features</router-link>
-      <router-link :to="{ name: 'Pricing'}">Pricing</router-link>
+        <router-link :to="{ name: 'Stories' }">Stories</router-link>
+        <router-link :to="{ name: 'Features'}">Features</router-link>
+        <router-link :to="{ name: 'Pricing'}">Pricing</router-link>
+        <hr />
+        <router-link to="/" v-if="isMobile()" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
     </div>
-    <router-link to="/" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
+    <router-link to="/" v-if="!isMobile()" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
   </nav>
 </template>
 <script>
@@ -40,12 +42,26 @@ export default {
     @import '../assets/styles/buttons.scss';
 
     .navbar-nav {
+        top: 0;
         justify-content: space-between;
         align-items: center;
+        position: fixed;
+        z-index: 9;
+        height: 72px;
+        background-color: $pureWhite;
+
+        &:after {
+            content: '';
+            height: 100vh;
+            width: 100%;
+            background: rgba(0, 0, 0, .5);
+        }
+
 
         @media(min-width: $tablet) {
             display: flex;
             height: 72px;
+            position: relative;
         }
 
         &--nav-close {
@@ -109,34 +125,58 @@ export default {
         }
 
         &__links {
-            gap: 20px;
             text-transform: uppercase;
             font-size: 12px;
             font-weight: bold;
             text-align: center;
-            padding-top: 32px;
-            padding-bottom: 20px;
-            border-bottom: 1px $lightGrey solid;
-            margin-bottom: 20px;
+            padding: 32px 33px 0;
+            top: -5px;
+            position: relative;
+            background-color: $pureWhite;
+
 
             @media(min-width: $tablet) {
                 display: flex;
                 text-align: left;
                 gap: 37px;
                 border-bottom: none;
+                padding: 0;
             }
 
             a {
+                margin-bottom: 20px;
                 color: $pureBlack;
                 transition: all .2s ease-in-out;
                 text-decoration: none;
                 letter-spacing: 2px;
+
+                @media(min-width:$tablet) {
+                    margin-bottom: 0;
+                }
 
                 &:hover {
                     color: $lightGrey;
                 }
                 &.router-link-exact-active {
                     color: $pureBlack;
+                }
+
+                &:last-child {
+                    color: $pureWhite;
+                    padding: 16px 0;
+                }
+            }
+
+            hr {
+                display: block;
+                width: 100%;
+                height: 1px;
+                border: none;
+                background-color: $dividerColor;
+                margin-bottom: 20px;
+
+                @media(min-width: $desktop) {
+                    display: none;
                 }
             }
         }

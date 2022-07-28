@@ -16,5 +16,13 @@ export default{
 
 
 <style lang="scss">
+@import '@/assets/styles/variable.scss';
 
+  #app {
+    padding-top: 74px;
+
+    @media (min-width: $tablet) {
+      padding-top: 0;
+    }
+  }
 </style>
