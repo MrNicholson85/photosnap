@@ -1,12 +1,14 @@
 <template>
-    <div class="Hero" :class="{imgLeft: theme === 'imgLeft'}">
-        <div class="Hero__columns">
-            <div class="Hero__left">
-                <slot class="Hero__title" name="title">Module Title</slot>
-                <slot class="Hero__content" name="content">Module Content</slot>
-                <slot class="Hero__link" name="link">Module Link</slot>
+    <div class="hero" :class="{imgLeft: theme === 'imgLeft'}">
+        <div class="hero__mobileImg" v-if="isMobile()" :style="{ backgroundImage: `url(${createImage})` }">
+        </div>
+        <div class="hero__columns">
+            <div class="hero__left">
+                <slot class="hero__title" name="title">Module Title</slot>
+                <slot class="hero__content" name="content">Module Content</slot>
+                <slot class="hero__link" name="link">Module Link</slot>
             </div>
-            <div class="Hero__right">
+            <div class="hero__right" v-if="!isMobile()">
                 <slot name="image">
                    <img :src="createImage" />
                 </slot>
@@ -24,16 +26,38 @@
                 createImage,
             }
         },
+        methods: {
+            isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+            );
+            }
+        }
     }
 </script>
 <style lang="scss">
     @import '../assets/styles/variable.scss';
     
-    .Hero {
+    .hero {
+        display: block;
         background-color: $pureBlack;
         color: $pureWhite;
-        max-height: 650px;
         overflow: hidden;
+
+        @media(min-width: $tablet) {
+            max-height: 650px
+        }
+
+        &__mobileImg {
+            background-size: cover;
+            height: 249px;
+            width: 100%;
+            background-repeat: no-repeat;
+
+            @media(min-width: $tablet) {
+                display: none;
+            }
+        }
 
         &__columns {
             display: grid;
