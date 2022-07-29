@@ -1,6 +1,9 @@
 <template>
     <div class="ContentImage" :class="{imgLeft: theme === 'imgLeft'}">
         <div class="ContentImage__columns">
+            <div class="ContentImage__mobileImage" v-if="isMobile()">
+                <slot name="mobileImage" :style="{ backgroundImage: `url(${createImage})` }"></slot>
+            </div>
             <div v-if="theme !== imgLeft" class="ContentImage__right">
                 <slot name="image" :style="{ backgroundImage: `url(${createImage})` }">
                 </slot>
@@ -27,6 +30,13 @@
                 createImage,
             }
         },
+        methods: {
+            isMobile() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                );
+            }
+        }
     }
 </script>
 <style lang="scss">
@@ -42,6 +52,13 @@
             max-height: 600px;
         }
 
+        &__mobileImage {
+            div {
+                background-size: contain;
+                height: 271px;
+            }
+        }
+
         &.imgLeft {
             .ContentImage__columns {
                 grid-template-columns: 830px auto;
@@ -52,10 +69,13 @@
 
                 .ContentImage__right {
                     div {
-                        height: 690px;
+                        max-height: 271px;
+                        background-size: contain;
+                        width: 100%;
+                        background-repeat: no-repeat;
 
                         @media (min-width: $tablet) {
-                            max-height: 600px;
+                            max-height: 690px;
                         }
                     }
                 }
@@ -84,12 +104,20 @@
 
         &__left {
             position: relative;
-            padding: 0 111px;
+            padding: 72px 31px;
+
+            @media(min-width: $tablet) {
+                padding: 0 111px;
+            }
 
             h1 {
                 display: block;
-                width: 387px;
+                width: 275px;
                 margin-top: 0;
+
+                @media(min-width: $tablet) {
+                    width: 387px;
+                }
             }
 
             p {
@@ -102,12 +130,28 @@
                 display: flex;
                 gap: 18px;
                 color: $pureBlack;
-                text-decoration: none;
                 font-size: 12px;
                 letter-spacing: 2px;
+                text-decoration: none;
+                
+                div {
+                    border-bottom: transparent;
+                    transition: all .2s ease-in-out;
+
+                    &:hover {
+                        border-bottom: 1px solid $pureBlack;
+                    }
+                 }
+            }
+        }
+
+        &__link {
+            div {
+                border-bottom: transparent;
+                transition: all .2s ease-in-out;
 
                 &:hover {
-                    color: $lightGrey;
+                    border-bottom: 1px solid $pureBlack;
                 }
             }
         }

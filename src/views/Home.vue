@@ -16,6 +16,9 @@
     </Hero>
 
     <ContentImage theme="imgLeft">
+      <template #mobileImage v-if="isMobile()">
+        <div :style="{ backgroundImage: `url(${storyImage1})` }"></div>
+      </template>
       <template #title>
         <h1>BEAUTIFUL STORIES EVERY TIME</h1>
       </template>
@@ -23,14 +26,17 @@
         <p>We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.</p>
       </template>
       <template #link>
-        <a href="#">VIEW THE STORIES <span><img :src="arrowBlack"/></span></a>
+        <a href="#"><div>VIEW THE STORIES</div> <span><img :src="arrowBlack"/></span></a>
       </template>
-      <template #image>
+      <template #image v-if="!isMobile()">
         <div :style="{ backgroundImage: `url(${storyImage1})` }"></div>
       </template>
     </ContentImage>
     
     <ContentImage>
+      <template #mobileImage v-if="isMobile()">
+        <div :style="{ backgroundImage: `url(${storyImage2})` }"></div>
+      </template>
       <template #title>
         <h1>Create and share your photo stories.</h1>
       </template>
@@ -38,9 +44,9 @@
         <p>Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.</p>
       </template>
       <template #link>
-        <a href="#">GET AN INVITE <span><img :src="arrowBlack"/></span></a>
+        <a href="#"><div>GET AN INVITE</div> <span><img :src="arrowBlack"/></span></a>
       </template>
-      <template #image>
+      <template #image v-if="!isMobile()">
         <div :style="{ backgroundImage: `url(${storyImage2})` }"></div>
       </template>
     </ContentImage>
@@ -74,14 +80,17 @@ export default {
           arrowBlack
       }
   },
+  methods: {
+    isMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/styles/variable.scss';
-
-  .home {
-
-  }
 </style>
 
