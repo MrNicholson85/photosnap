@@ -50,14 +50,6 @@ export default {
         height: 72px;
         background-color: $pureWhite;
 
-        &:after {
-            content: '';
-            height: 100vh;
-            width: 100%;
-            background: rgba(0, 0, 0, .5);
-        }
-
-
         @media(min-width: $tablet) {
             display: flex;
             height: 72px;

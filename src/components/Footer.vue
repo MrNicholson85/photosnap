@@ -4,8 +4,16 @@
             <div class="footer__col-1">
                 <div class="footer__logo"><img :src="footerLogo"/></div>
                 <div class="footer__social-icons">
-                    <div v-for="icons in footerIcons">
-                        <img :src="icons.icon"/>
+                    <div v-for="(icons, index) in footerIcons" class="footer__icons" :class="icons.title">
+                        <div 
+                            @mouseover="mouseOver(index)" 
+                            @mouseleave="mouseOver(index)"
+                            class="div"
+                            :class="{ 'div-hover': hover }"
+                        >
+                            <div v-show="!icons.active"><img :src="icons.icon_white"/></div>
+                            <div v-show="icons.active"><img :src="icons.icon_hover"/></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -22,7 +30,7 @@
             <div class="footer__col-3">
                 <div class="footer__content">
                     <div class="footer__invite-link">
-                        GET AN INVITE <img :src="ctaArrow"/>
+                        <router-link to="/">GET AN INVITE</router-link> <img :src="ctaArrow"/>
                     </div>
                     <div class="footer__copy-rights">
                         Copyright 2019. All Rights Reserved
@@ -43,13 +51,19 @@
                 footerLogo,
                 ctaArrow,
                 fbIcon,
+                hover: false,
                 footerIcons: [
-                    {title: 'facebook', icon: require('../assets/images/facebook.svg')},
-                    {title: 'youtube', icon: require('../assets/images/youtube.svg')},
-                    {title: 'twitter', icon: require('../assets/images/twitter.svg')},
-                    {title: 'pintrest', icon: require('../assets/images/pinterest.svg')},
-                    {title: 'instagram', icon: require('../assets/images/instagram.svg')},
+                    {title: 'facebook', icon_hover: require('../assets/images/facebook.svg'), icon_white: require('../assets/images/Facebook-white.svg'), active:false},
+                    {title: 'youtube', icon_hover: require('../assets/images/youtube.svg'), icon_white: require('../assets/images/youtube-white.svg'), active:false},
+                    {title: 'twitter', icon_hover: require('../assets/images/twitter.svg'), icon_white: require('../assets/images/twitter-white.svg'), active:false},
+                    {title: 'pintrest', icon_hover: require('../assets/images/pinterest.svg'), icon_white: require('../assets/images/pintrest-white.svg'), active:false},
+                    {title: 'instagram', icon_hover: require('../assets/images/instagram.svg'), icon_white: require('../assets/images/instagram-white.svg'), active:false},
                 ],
+            }
+        },
+        methods:{
+            mouseOver(index) {
+                      this.footerIcons[index].active = !this.footerIcons[index].active;
             }
         }
     }
@@ -99,6 +113,24 @@
             display: grid;
             row-gap: 85px;
             text-align: right;
+        }
+
+        &__invite-link {
+            a {
+                color: $pureWhite;
+                font-weight: bold;
+                transition: ease-in-out .2s all;
+                text-decoration: none;
+                border-bottom: 1px transparent solid;
+
+                &:hover {
+                    border-bottom: 1px $pureWhite solid;
+                }
+            }
+
+            img {
+                padding-left: 16px;
+            }
         }
     }
 </style>
