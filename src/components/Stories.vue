@@ -33,24 +33,28 @@ export default {
     .stories {
         display: grid;
         grid-template-columns: 100%;
-        height: 500px;
         margin: 0 auto;
 
         @media(min-width: $desktop) {
             grid-template-columns: repeat(5, 25%);
             width: $desktop;
+            height: 500px;
         }
 
 
         &__item {
             position: relative;
-            height: 100%;
+            height: 375px;
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
             align-items: self-end;
             border-bottom: none;
             transition: all .2s ease-in-out;
+
+            @media(min-width: $tablet) {
+                height: 100%;
+            }
 
             &:hover {
                     transform: translateY(-24px);
@@ -80,6 +84,10 @@ export default {
             color: $pureWhite;
             position: relative;
             z-index: 2;
+
+            @media(min-width: $tablet) {
+
+            }
 
             &-title {
                 font-size: 18px;

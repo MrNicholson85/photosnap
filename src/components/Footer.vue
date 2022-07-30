@@ -77,22 +77,47 @@
 
         .container {
             display: grid;
-            grid-template-columns: 33% 33% auto;
+            grid-template-columns: 100%;
+
+            @media(min-width: $tablet) {
+                grid-template-columns: 33% 33% auto;
+            }
         }
 
         &__col-1 {
             display: grid;
-            row-gap: 85px;
+            row-gap: 20px;
+            justify-content: center;
+
+            @media(min-width: $tablet) {
+                row-gap: 85px;
+                justify-content: left;
+            }
         }
 
         &__social-icons {
             display: flex;
-            gap: 13.33px
+            gap: 13.33px;
+            justify-content: center;
+
+            @media(min-width: $tablet) {
+                justify-content: left;
+
+            }
         }
 
         &__nav--inks {
             display: grid;
             row-gap: 20px;
+            justify-content: center;
+            text-align: center;
+            margin-top: 50px;
+
+            @media(min-width: $tablet) {
+                justify-content: left;
+                text-align: left;
+                margin-top: 0;
+            }
             
             a {
                 color: $pureWhite;
@@ -111,17 +136,40 @@
 
         &__content {
             display: grid;
-            row-gap: 85px;
-            text-align: right;
+            row-gap: 25px;
+            justify-content: center;
+            text-align: center;
+
+            @media(min-width: $tablet) {
+               text-align: right;
+                row-gap: 85px;
+            }
+            
+        }
+
+        &__copy-rights {
+            opacity: 50.25%;
         }
 
         &__invite-link {
+            margin-top: 119px;
+
+            @media(min-width: $tablet) {
+                margin-top: 0;
+            }
+
             a {
                 color: $pureWhite;
                 font-weight: bold;
                 transition: ease-in-out .2s all;
                 text-decoration: none;
                 border-bottom: 1px transparent solid;
+                font-size: 12px;
+                letter-spacing: 2px;
+                
+                @media(min-width: $tablet) {
+
+                }
 
                 &:hover {
                     border-bottom: 1px $pureWhite solid;

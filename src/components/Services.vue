@@ -41,10 +41,11 @@ export default {
         grid-template-columns: 100%;
         gap: 30px;
         margin: 0 auto;
-        padding: 120px 0;
+        padding: 120px 29px;
         text-align: center;
 
         @media(min-width: $desktop) {
+            padding: 120px 0;
             grid-template-columns: repeat(3, 33%);
             width: $container;
         }
