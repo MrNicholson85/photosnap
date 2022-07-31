@@ -5,7 +5,7 @@
                 <slot class="hero-internal__sub-title" name="subTitle">Module Sub Title</slot>
                 <slot class="hero-internal__title" name="title">Module Title</slot>
                 <slot class="hero-internal__author" name="author">Module Author</slot>
-                <slot class="hero-internal__content" name="content">Module Content</slot>
+                <slot class="hero-internal__copy" name="content">Module Content</slot>
                 <slot class="hero-internal__link" name="link">Module Link</slot>
             </div>
         </div>
@@ -35,21 +35,34 @@
     .hero-internal {
         &__Img {
             height: 650px;
-            width: $desktop;
             background-repeat: no-repeat;
             background-size: cover;
             margin: 0 auto;
             padding: 122px 112px;
+            display: flex;
+            align-items: center;
         }
 
         &__content {
             width: 406px;
             color: $pureWhite;
 
+            h1 {
+                padding-right: 4px;
+            }
+
             p{
                 display: block;
                 font-size: 13px;
+
+            }
+
+            .copy {
+                display: block;
+                opacity: 60%;
             }
         }
+
+
     }
 </style>

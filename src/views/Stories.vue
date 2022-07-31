@@ -15,22 +15,33 @@
           </p>
         </template>
         <template #content>
-          <p>The dissected plateau area, while not actually made up of geological mountains, is popularly called "mountains," especially in eastern Kentucky and West Virginia, and while the ridges are not high, the terrain is extremely rugged.</p>
+          <p class="copy">The dissected plateau area, while not actually made up of geological mountains, is popularly called "mountains," especially in eastern Kentucky and West Virginia, and while the ridges are not high, the terrain is extremely rugged.</p>
         </template>
         <template #link>
           <div>
-            READ THE STORY
+            READ THE STORY <img :src="arrowWhite" />
           </div>
         </template>
       </heroInternal>
+      <StoriesGrid/>
   </div>
 </template>
 
 <script>
 import heroInternal from '@/components/HeroInternal';
+import storiesGrid from '@/components/StoriesGrid.vue';
+
+import arrowWhite from '../assets/images/arrow-white.svg';
+import StoriesGrid from '../components/StoriesGrid.vue';
+
 
 export default {
-  components: { heroInternal }
+  components: { heroInternal, storiesGrid, StoriesGrid },
+  data () {
+    return {
+      arrowWhite
+    }
+  }
 }
 </script>
 <style lang="scss">
