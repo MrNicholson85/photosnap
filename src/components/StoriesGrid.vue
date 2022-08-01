@@ -67,6 +67,7 @@ export default {
             border-bottom: none;
             transition: all .2s ease-in-out;
             z-index: 1;
+            cursor: pointer;
 
             @media(min-width: $tablet) {
                 height: 500px;

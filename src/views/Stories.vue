@@ -19,7 +19,7 @@
         </template>
         <template #link>
           <div>
-            READ THE STORY <img :src="arrowWhite" />
+            <p>READ THE STORY</p> <img :src="arrowWhite" />
           </div>
         </template>
       </heroInternal>
@@ -29,14 +29,12 @@
 
 <script>
 import heroInternal from '@/components/HeroInternal';
-import storiesGrid from '@/components/StoriesGrid.vue';
-
-import arrowWhite from '../assets/images/arrow-white.svg';
 import StoriesGrid from '../components/StoriesGrid.vue';
+import arrowWhite from '../assets/images/arrow-white.svg';
 
 
 export default {
-  components: { heroInternal, storiesGrid, StoriesGrid },
+  components: { heroInternal, StoriesGrid },
   data () {
     return {
       arrowWhite

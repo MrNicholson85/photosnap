@@ -5,7 +5,8 @@ body {
     font-family: $DMSans;
 }
 
-h1 {
+h1,
+.h1 {
     font-size: 32px;
     line-height: 40px;
     letter-spacing: 3.33px;
@@ -23,7 +24,8 @@ h2 {
     line-height: 25px;
 }
 
-h3 {
+h3,
+.h3 {
     font-size: 18px;
     line-height: 25px;
 }

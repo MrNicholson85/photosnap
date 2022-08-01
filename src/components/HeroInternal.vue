@@ -1,13 +1,20 @@
 <template>
     <div class="hero-internal">
         <div class="hero-internal__Img" :style="{ backgroundImage: `url(${internalHeroImage})` }">
-            <div class="hero-internal__content">
-                <slot class="hero-internal__sub-title" name="subTitle">Module Sub Title</slot>
-                <slot class="hero-internal__title" name="title">Module Title</slot>
-                <slot class="hero-internal__author" name="author">Module Author</slot>
-                <slot class="hero-internal__copy" name="content">Module Content</slot>
-                <slot class="hero-internal__link" name="link">Module Link</slot>
+            <div v-if="!isMobile()" class="hero-internal__content">
+                <div class="hero-internal__sub-title"><slot name="subTitle">Module Sub Title</slot></div>
+                <div class="hero-internal__title"><slot name="title">Module Title</slot></div>
+                <div class="hero-internal__author"><slot name="author">Module Author</slot></div>
+                <div class="hero-internal__copy"><slot name="content">Module Content</slot></div>
+                <div class="hero-internal__link"><slot name="link">Module Link</slot></div>
             </div>
+        </div>
+        <div v-if="isMobile()" class="hero-internal__mobile-content">
+            <div class="hero-internal__sub-title"><slot name="subTitle">Module Sub Title</slot></div>
+            <div class="hero-internal__title"><slot name="title">Module Title</slot></div>
+            <div class="hero-internal__author"><slot name="author">Module Author</slot></div>
+            <div class="hero-internal__copy"><slot name="content">Module Content</slot></div>
+            <div class="hero-internal__link"><slot name="link">Module Link</slot> </div>
         </div>
     </div>
 </template>
@@ -33,36 +40,77 @@
     @import '../assets/styles/variable.scss';
     
     .hero-internal {
+        width: $mobile;
+        margin: 0 auto;
+
+        @media(min-width: $tablet) {
+            width: $desktop;
+        }
+
         &__Img {
-            height: 650px;
+            height: 317px;
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: -250px;
             margin: 0 auto;
-            padding: 122px 112px;
             display: flex;
             align-items: center;
+
+            @media(min-width: $tablet) {
+                padding: 122px 112px;
+                height: 650px;
+                background-position: initial;
+            }
         }
 
         &__content {
             width: 406px;
             color: $pureWhite;
+        }
 
-            h1 {
-                padding-right: 4px;
-            }
+        &__mobile-content {
+            background-color: $pureBlack;
+            color: $pureWhite;
+            padding: 48px 29px;
+        }
 
-            p{
-                display: block;
-                font-size: 13px;
+        &__sub-title {
+            
+        }
 
-            }
+        &__author {
+            display: block;
+            font-size: 13px;
+            color: rgba(255, 255, 255, .75);
 
-            .copy {
-                display: block;
-                opacity: 60%;
+            span {
+                color: rgba(255, 255, 255, 1);
             }
         }
 
+        &__copy {
+            display: block;
+            opacity: 60%;
+        }
 
+        &__link {
+            div {
+                display: inline-flex;
+                align-items: center;
+                
+                p {
+                    border-bottom: 1px solid transparent;
+                    
+                    &:hover {
+                        border-bottom: 1px solid $pureWhite;
+                    }
+                }
+            }
+
+            img {
+                
+                padding-left: 10px;
+            }
+        }
     }
 </style>
