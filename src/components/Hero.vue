@@ -8,7 +8,7 @@
                 <slot class="hero__content" name="content">Module Content</slot>
                 <slot class="hero__link" name="link">Module Link</slot>
             </div>
-            <div class="hero__right" v-if="!isMobile()">
+            <div class="hero__right" v-if="!isMobile()" :style="{ backgroundImage: `url(${createImage})` }">
                 <slot name="image">
                    <img :src="createImage" />
                 </slot>
@@ -45,7 +45,7 @@
         overflow: hidden;
 
         @media(min-width: $tablet) {
-            max-height: 650px
+            height: 490px;
         }
 
         &__mobileImg {
@@ -66,8 +66,37 @@
             align-items: center;
 
             @media(min-width: $tablet) {
+                width: $tablet;
+                grid-template-columns: 410px auto;
+            }
+
+            @media(min-width: $desktop) {
                 width: $desktop;
                 grid-template-columns: 610px auto;
+            }
+        }
+
+        &__right {
+            position: relative;
+
+            img {
+                height: 490px;
+                object-fit: cover;
+                object-position: -90px;
+                width: 100%;
+            }
+        }
+
+        &__left {
+            position: relative;
+            padding: 72px 33px;
+
+            @media (min-width: $tablet) {
+                padding: 0px 54px;
+            }
+
+            @media (min-width: $desktop) {
+                padding: 0 111px;
             }
 
             &::before {
@@ -82,26 +111,8 @@
                     position: absolute;
                     left: 0;
                     width: 6px;
-                    height: 304px;
+                    height: 100%;
                 }
-            }
-        }
-
-        &__right {
-            position: relative;
-
-            img {
-                object-fit: cover;
-                width : 100%;
-            }
-        }
-
-        &__left {
-            position: relative;
-            padding: 72px 33px;
-
-            @media (min-width: $tablet) {
-                padding: 0 111px;
             }
 
             h1 {
@@ -118,8 +129,18 @@
 
             p {
                 display: block;
-                width: 327px;
-                margin-bottom: 48px;
+                
+                @media (min-width: $tablet) {
+                    font-size: 12px;
+                    opacity: .6;
+                    margin: 0;
+                }
+
+                @media (min-width: $desktop) {
+                    font-size: 15px;
+                    width: 327px;
+                    margin-bottom: 48px;
+                }
             }
 
             a {

@@ -40,6 +40,13 @@ export default {
         padding:160px 0;
 
         @media(min-width: $tablet) {
+            grid-template-columns: repeat(2, 340px);
+            width: $tablet;
+            column-gap: 11px;
+            justify-content: center;
+        }
+
+        @media(min-width: $desktop) {
             grid-template-columns: repeat(3, 350px);
             width: $container;
         }
