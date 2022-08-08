@@ -8,9 +8,8 @@
                 <slot class="hero__content" name="content">Module Content</slot>
                 <slot class="hero__link" name="link">Module Link</slot>
             </div>
-            <div class="hero__right" v-if="!isMobile()" :style="{ backgroundImage: `url(${createImage})` }">
-                <slot name="image">
-                   <img :src="createImage" />
+            <div class="hero__right" v-if="!isMobile()">
+                <slot name="image"  :style="{ backgroundImage: `url(${createImage})` }">
                 </slot>
             </div>
         </div>
@@ -74,6 +73,23 @@
                 width: $desktop;
                 grid-template-columns: 610px auto;
             }
+
+            
+            &::before {
+                position: relative;
+                content: '';
+                background: $mainAccent;
+                width: 128px;
+                height: 6px;
+                left: 33px;
+
+                @media(min-width: $tablet) {
+                    position: absolute;
+                    left: 0;
+                    width: 6px;
+                    height: 304px;
+                }
+            }
         }
 
         &__right {
@@ -97,22 +113,6 @@
 
             @media (min-width: $desktop) {
                 padding: 0 111px;
-            }
-
-            &::before {
-                position: relative;
-                content: '';
-                background: $mainAccent;
-                width: 128px;
-                height: 6px;
-                left: 33px;
-
-                @media(min-width: $tablet) {
-                    position: absolute;
-                    left: 0;
-                    width: 6px;
-                    height: 100%;
-                }
             }
 
             h1 {
