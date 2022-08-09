@@ -9,12 +9,16 @@
             <span>Yearly</span>
         </div>
         <div class="pricing_table__teirs">
-            <div class="pricing_table__items"  v-for="teirs in pricingTeir">
+            <div class="pricing_table__items" 
+            v-for="(teirs, key) in pricingTeir"
+            :class="[key == 1 ? 'pricing_table__items--feat' : '']">
+            <div>
                 <h2>{{teirs.title}}</h2>
                 <p>{{teirs.copy}}</p>
                 <span class="h1">{{teirs.monthPrice}}</span>
-                <div class="">Monthly</div>
-                <button class="btn btn--primary-dark">Pick Plan</button>
+                <div class="sub-length">per month</div>
+                <button class="btn" :class="[key == 1 ? 'btn--primary-light' : 'btn--primary-dark']">Pick Plan</button>
+            </div>
             </div>
         </div>
     </div>
@@ -48,27 +52,60 @@ export default {
             ]
         }
     },
+    methods: {
+        debug (event) {
+            console.log(event)
+        }
+    },
+    computed: {
+        console: () => console,
+        window: () => window,
+    },
 }
 </script>
 <style lang="scss">
 @import '../assets/styles/variable.scss';
 
     .pricing_table {
-        width: $container;
+        width: $mobile;
         margin: 0 auto;
         padding-top: 120px;
 
+        @media(min-width: $tablet) {
+            width: $container;
+        }
+
         &__teirs {
             display: grid;
-            grid-template-columns: repeat(3, 350px);
-            column-gap: 30px;
+            grid-template-columns: 318px;
+            row-gap: 24px;
             justify-content: center;
+            align-items: center;
+            margin-bottom: 80px;
+
+            @media(min-width: $tablet) {
+                grid-template-columns: repeat(3, 350px);
+                column-gap: 30px;
+                row-gap: 0;
+            }
         }
 
         &__items {
+            display: flex;
+            align-items: center;
             text-align: center;
             background-color: #F5F5F5;
-            padding: 56px 40px 40px;
+            padding: 0 40px;
+            height: 407px;
+
+            .sub-length {
+                opacity: .6;
+                font-weight: 100;
+            }
+
+            .h1 {
+                font-weight: 900;
+            }
 
             h2 {
                 margin: 0;
@@ -84,6 +121,28 @@ export default {
                 display: block;
                 padding-top: 18px;
                 padding-bottom: 40px;
+                opacity: .6;
+            }
+
+            &--feat {
+                position: relative;
+                height: 407px;
+                color: $pureWhite;
+                background-color: $pureBlack;
+
+                @media(min-width: $tablet) {
+                    height: 470px;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    height: 6px;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    background: $mainAccent;
+                }
             }
         }
 
@@ -138,7 +197,7 @@ export default {
             }
 
             label:active:after {
-                width: 130px;
+                width: 30px;
             }
         }
     }
