@@ -98,7 +98,6 @@
             img {
                 height: 490px;
                 object-fit: cover;
-                object-position: -90px;
                 width: 100%;
             }
         }

@@ -3,7 +3,7 @@
         <div class="pricing_table__sub-toggler">
             <span>Monthly</span>
             <div class="pricing_table__sub-toggle">
-                <input type="checkbox" id="switch" />
+                <input @click="monthlyYearly = !monthlyYearly" type="checkbox" id="switch" />
                 <label for="switch">Toggle</label>
             </div>
             <span>Yearly</span>
@@ -15,8 +15,14 @@
             <div>
                 <h2>{{teirs.title}}</h2>
                 <p>{{teirs.copy}}</p>
+                <div v-if="!monthlyYearly">
                 <span class="h1">{{teirs.monthPrice}}</span>
                 <div class="sub-length">per month</div>
+                </div>
+                <div v-if="monthlyYearly">
+                <span class="h1">{{teirs.yearPrice}}</span>
+                <div class="sub-length">per year</div>
+                </div>
                 <button class="btn" :class="[key == 1 ? 'btn--primary-light' : 'btn--primary-dark']">Pick Plan</button>
             </div>
             </div>
@@ -27,6 +33,7 @@
 export default {
     data() {
         return {
+            monthlyYearly: false,
             pricingTeir: [
                 {
                     title: 'Basic',
