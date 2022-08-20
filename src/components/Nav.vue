@@ -12,9 +12,9 @@
         <router-link :to="{ name: 'Features'}">Features</router-link>
         <router-link :to="{ name: 'Pricing'}">Pricing</router-link>
         <hr />
-        <router-link to="/" v-if="isMobile()" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
+        <router-link to="/" v-if="isMobile()" class="navbar-nav__btn-contact-mobile btn btn--primary-dark btn--nav-mobile">Get an invite</router-link>
     </div>
-    <router-link to="/" v-if="!isMobile()" class="btn btn--primary-dark" :class="[navToggler ? 'navbar-nav--nav-close' : 'navbar-nav--nav-open']">Get an invite</router-link>
+    <router-link to="/" class="navbar-nav__btn-contact-desktop btn btn--primary-dark">Get an invite</router-link>
   </nav>
 </template>
 <script>
@@ -54,6 +54,30 @@ export default {
             display: flex;
             height: 72px;
             position: relative;
+        }
+
+        &__btn-contact-desktop {
+            display: none;
+
+            @media(min-width: $tablet) {
+                display: block;
+            }
+        }
+
+        &__btn-contact-mobile {
+            display: block;
+
+            @media(min-width: $tablet) {
+                display: none;
+            }
+        }
+
+        &__menu-toggle {
+            display: block;
+
+            @media(min-width: $tablet) {
+                display: none;
+            }
         }
 
         &--nav-close {
