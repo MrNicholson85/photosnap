@@ -35,10 +35,13 @@ export default {
         grid-template-columns: 100%;
         margin: 0 auto;
 
+        @media(min-width: $tablet) {
+            grid-template-columns: repeat(2, 50%);
+        }
+ 
         @media(min-width: $desktop) {
             grid-template-columns: repeat(5, 25%);
             width: $desktop;
-            height: 500px;
         }
 
 
@@ -53,7 +56,7 @@ export default {
             transition: all .2s ease-in-out;
 
             @media(min-width: $tablet) {
-                height: 100%;
+                height: 500px;
             }
 
             &:hover {
