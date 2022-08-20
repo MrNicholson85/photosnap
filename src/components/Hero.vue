@@ -8,7 +8,7 @@
                 <slot class="hero__content" name="content">Module Content</slot>
                 <slot class="hero__link" name="link">Module Link</slot>
             </div>
-            <div class="hero__right" v-if="!isMobile()">
+            <div class="hero__right">
                 <slot name="image"  :style="{ backgroundImage: `url(${createImage})` }">
                 </slot>
             </div>
@@ -48,6 +48,7 @@
         }
 
         &__mobileImg {
+            display: block;
             background-size: cover;
             height: 249px;
             width: 100%;
@@ -66,7 +67,7 @@
 
             @media(min-width: $tablet) {
                 width: $tablet;
-                grid-template-columns: 410px auto;
+                grid-template-columns: 495px auto;
             }
 
             @media(min-width: $desktop) {
@@ -94,6 +95,11 @@
 
         &__right {
             position: relative;
+            display: none;
+
+            @media(min-width: $tablet) {
+                display: block;
+            }
 
             img {
                 height: 490px;
@@ -133,6 +139,7 @@
                     font-size: 12px;
                     opacity: .6;
                     margin: 0;
+                    margin-bottom: 48px;
                 }
 
                 @media (min-width: $desktop) {

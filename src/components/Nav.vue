@@ -153,6 +153,7 @@ export default {
 
             @media(min-width: $tablet) {
                 display: flex;
+                align-items: center;
                 text-align: left;
                 gap: 37px;
                 border-bottom: none;

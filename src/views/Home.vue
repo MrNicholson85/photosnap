@@ -28,7 +28,7 @@
       <template #link>
         <a href="#"><div>VIEW THE STORIES</div> <span><img :src="arrowBlack"/></span></a>
       </template>
-      <template #image v-if="!isMobile()">
+      <template #image>
         <div :style="{ backgroundImage: `url(${storyImage1})` }"></div>
       </template>
     </ContentImage>
@@ -46,7 +46,7 @@
       <template #link>
         <a href="#"><div>GET AN INVITE</div> <span><img :src="arrowBlack"/></span></a>
       </template>
-      <template #image v-if="!isMobile()">
+      <template #image>
         <div :style="{ backgroundImage: `url(${storyImage2})` }"></div>
       </template>
     </ContentImage>

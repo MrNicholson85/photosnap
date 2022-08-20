@@ -53,43 +53,32 @@
         }
 
         &__mobileImage {
+            display: block;
+
+            @media(min-width: $tablet) {
+                display: none;
+            }
+
             div {
                 background-size: contain;
                 height: 271px;
             }
         }
 
-        &.imgLeft {
-            .ContentImage__columns {
-                grid-template-columns: 830px auto;
-
-                a {
-                    color: $pureBlack;
-                }
-
-                .ContentImage__right {
-                    div {
-                        max-height: 271px;
-                        background-size: contain;
-                        width: 100%;
-                        background-repeat: no-repeat;
-
-                        @media (min-width: $tablet) {
-                            max-height: 690px;
-                        }
-                    }
-                }
-            }
-        }
-
         &__columns {
             display: block;
-            width: $desktop;
+            width: $mobile;
             margin: 0 auto;
             align-items: center;
 
             @media (min-width: $tablet) {
-                 display: grid;
+                width: $tablet;
+                display: grid;
+                grid-template-columns: 495px auto;
+            }
+
+            @media (min-width: $desktop) {
+                width: $desktop;
                 grid-template-columns: 610px auto;
             }
         }
@@ -99,14 +88,20 @@
 
             div {
                 height: 600px;
+                background-position: center;
+                background-size: cover;
             }
         }
 
         &__left {
             position: relative;
-            padding: 72px 31px;
+                    padding: 72px 33px;
 
             @media(min-width: $tablet) {
+                padding: 0 54px;
+            }
+
+            @media(min-width: $desktop) {
                 padding: 0 111px;
             }
 
@@ -152,6 +147,58 @@
 
                 &:hover {
                     border-bottom: 1px solid $pureBlack;
+                }
+            }
+        }
+
+        
+
+        &.imgLeft {
+            .ContentImage__columns {
+
+                @media (min-width: $tablet) {
+                    grid-template-columns: 237px auto; 
+                }
+
+                @media (min-width: $desktop) {
+                    grid-template-columns: 830px auto; 
+                }
+
+                a {
+                    color: $pureBlack;
+                }
+
+                .ContentImage__right {
+                    div {
+                        display: none;
+                        max-height: 273px;
+                        background-size: cover;
+                        width: 100%;
+                        background-repeat: no-repeat;
+
+                        @media (min-width: $tablet) {
+                            display: block;
+                            background-size: cover;
+                            background-position: -180px;
+                            max-height: 600px;
+                        }
+
+                        @media (min-width: $desktop) {
+                            background-position: center;
+                        }
+                    }
+                }
+
+                .ContentImage__left {
+                    padding: 72px 33px;
+
+                    @media(min-width: $tablet) {
+                        padding: 0 54px;
+                    }
+
+                    @media(min-width: $desktop) {
+                        padding: 0 111px;
+                    }
                 }
             }
         }
