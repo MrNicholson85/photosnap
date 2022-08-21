@@ -51,6 +51,11 @@ export default {
         grid-template-columns: 100%;
         margin: 0 auto;
 
+        @media(min-width: $tablet) {
+            grid-template-columns: repeat(2,50%);
+            width: $tablet;
+        }
+
         @media(min-width: $desktop) {
             grid-template-columns: repeat(4, 25%);
             width: $desktop;

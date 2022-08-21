@@ -62,6 +62,11 @@ export default {
 
         &__items-copy {
             opacity: .6;
+
+            @media (min-width: $tablet) {
+                width: 457px;
+                margin: 0 auto;
+            }
         }
     }
 </style>

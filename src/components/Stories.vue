@@ -60,7 +60,8 @@ export default {
             }
 
             &:hover {
-                    transform: translateY(-24px);
+                transform: translateY(-24px);
+                
                 &::after {
                     content: "";
                     position: absolute;

@@ -1,7 +1,7 @@
 <template>
     <div class="hero-internal">
         <div class="hero-internal__Img" :style="{ backgroundImage: `url(${internalHeroImage})` }">
-            <div v-if="!isMobile()" class="hero-internal__content">
+            <div class="hero-internal__content">
                 <div class="hero-internal__sub-title"><slot name="subTitle">Module Sub Title</slot></div>
                 <div class="hero-internal__title"><slot name="title">Module Title</slot></div>
                 <div class="hero-internal__author"><slot name="author">Module Author</slot></div>
@@ -57,25 +57,50 @@
             align-items: center;
 
             @media(min-width: $tablet) {
-                padding: 122px 112px;
+                padding: 122px 0 112px 39px;
                 height: 650px;
+                background-position: -810px;
+            }
+
+            @media (min-width: $desktop) {
                 background-position: initial;
             }
         }
 
         &__content {
-            width: 406px;
-            color: $pureWhite;
+            display: none;
+            
+            @media (min-width: $tablet) {
+                display: block;
+                transform: translateY(60px);
+                width: 387px;
+                color: $pureWhite;
+            }
+
+            @media(min-width: $desktop) {
+
+            }
         }
 
         &__mobile-content {
+            display: block;
             background-color: $pureBlack;
             color: $pureWhite;
             padding: 48px 29px;
+
+            @media(min-width: $tablet) {
+                display: none;
+            }
         }
 
-        &__sub-title {
-            
+        &__title {
+            @media(min-width: $tablet) {
+                padding-right: 150px;
+            }
+
+            @media(min-width: $desktop) {
+                padding-right: 0;
+            }
         }
 
         &__author {
