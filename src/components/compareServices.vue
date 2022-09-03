@@ -2,17 +2,22 @@
     <div class="compareServices">
         <div class="compareServices__titles">
             <div class="h4 heavy">THE FEATURES</div>
-            <span class="h4 heavy">BASIC</span>
-            <span class="h4 heavy">PRO</span>
-            <span class="h4 heavy">BUSINESS</span>
+
+            <div class="compareServices__tier-titles">
+                <span class="h4 heavy compareServices__tier">BASIC</span>
+                <span class="h4 heavy compareServices__tier">PRO</span>
+                <span class="h4 heavy compareServices__tier">BUSINESS</span>
+            </div>
         </div>
         <div v-for="rows in serverceRows" class="compareServices__row">
             <div class="compareServices__title h4 heavy">
                 {{rows.title}}
             </div>
-            <div class="compareServices__teirCheck"><img v-if="rows.basicTeir === true" :src="checkmark"></div>
-            <div class="compareServices__teirCheck"><img v-if="rows.proTeir === true" :src="checkmark"></div>
-            <div class="compareServices__teirCheck"><img v-if="rows.businessTeir === true" :src="checkmark"></div>
+            <div class="compareServices__tiers">
+                <div class="compareServices__teirCheck"><p>Basic</p><img v-if="rows.basicTeir === true" :src="checkmark"></div>
+                <div class="compareServices__teirCheck"><p>Pro</p><img v-if="rows.proTeir === true" :src="checkmark"></div>
+                <div class="compareServices__teirCheck"><p>Businesss</p><img v-if="rows.businessTeir === true" :src="checkmark"></div>
+            </div>
         </div>
     </div>
 </template>
@@ -41,7 +46,7 @@ export default {
 @import '../assets/styles/variable.scss';
 
 .compareServices {
-    width: $mobile;
+    width: 315px;
     margin: 0 auto;
     padding-top: 80px;
     padding-bottom: 160px;
@@ -50,34 +55,78 @@ export default {
         width: 731px;
     }
 
-    &__titles,
-    &__row {
+    &__tiers {
         display: grid;
+        grid-template-columns: repeat(3, 100px);
+
+        @media (min-width: $tablet) {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+    }
+
+    &__row {
         border-bottom: $pureBlack 1px solid;
         padding-bottom: 23px;
         align-items: center;
-        padding-left: 24px;
+        padding-top: 23px;
+        border-bottom: #D8D8D8 1px solid;
 
         @media(min-width: $tablet) {
             display: grid;
-            grid-template-columns: auto 140px 140px 140px;
+            grid-template-columns: auto 427px;
+            padding-left: 24px;
         } 
     }
 
     &__titles {
+        border-bottom: $pureBlack 1px solid;
+        padding-bottom: 23px;
+        align-items: center;
+
+        @media(min-width: $tablet) {
+            display: grid;
+            grid-template-columns: auto 414px;
+            padding-left: 24px;
+        } 
+
         span {
             text-align: center;
         }
     }
 
-    &__row {
-        padding-top: 23px;
-        border-bottom: #D8D8D8 1px solid;
+    &__tier-titles {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__tier {
+        display: none;
+
+        @media(min-width: $tablet) {
+            display: block;
+        }
     }
 
     &__teirCheck {
+        display: inline-block;
+        position: initial;
+
+        @media (min-width: $desktop) {
         display: grid;
         justify-content: center;
+        }
+
+        p {
+            display: block;
+            color: $pureBlack;
+            opacity: 0.6;
+
+            @media(min-width: $tablet) {
+                display: none;
+            }
+        }
     }
 }
 </style>

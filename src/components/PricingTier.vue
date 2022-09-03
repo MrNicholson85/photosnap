@@ -12,19 +12,19 @@
             <div class="pricing_table__items" 
             v-for="(teirs, key) in pricingTeir"
             :class="[key == 1 ? 'pricing_table__items--feat' : '']">
-            <div>
-                <h2>{{teirs.title}}</h2>
-                <p>{{teirs.copy}}</p>
-                <div v-if="!monthlyYearly">
-                <span class="h1">{{teirs.monthPrice}}</span>
-                <div class="sub-length">per month</div>
+                <div>
+                    <h2>{{teirs.title}}</h2>
+                    <p>{{teirs.copy}}</p>
+                    <div v-if="!monthlyYearly">
+                        <span class="h1">{{teirs.monthPrice}}</span>
+                        <div class="sub-length">per month</div>
+                    </div>
+                    <div v-if="monthlyYearly">
+                        <span class="h1">{{teirs.yearPrice}}</span>
+                        <div class="sub-length">per year</div>
+                    </div>
+                    <button class="btn" :class="[key == 1 ? 'btn--primary-light' : 'btn--primary-dark']">Pick Plan</button>
                 </div>
-                <div v-if="monthlyYearly">
-                <span class="h1">{{teirs.yearPrice}}</span>
-                <div class="sub-length">per year</div>
-                </div>
-                <button class="btn" :class="[key == 1 ? 'btn--primary-light' : 'btn--primary-dark']">Pick Plan</button>
-            </div>
             </div>
         </div>
     </div>
@@ -79,6 +79,10 @@ export default {
         padding-top: 120px;
 
         @media(min-width: $tablet) {
+            width: $tablet;
+        }
+
+        @media(min-width: $desktop) {
             width: $container;
         }
 
@@ -91,6 +95,13 @@ export default {
             margin-bottom: 80px;
 
             @media(min-width: $tablet) {
+                grid-template-columns: repeat(1, 100%);
+                column-gap: 30px;
+                row-gap: 0;
+                padding: 0 40px;
+            }
+
+            @media(min-width: $desktop) {
                 grid-template-columns: repeat(3, 350px);
                 column-gap: 30px;
                 row-gap: 0;
@@ -104,6 +115,10 @@ export default {
             background-color: #F5F5F5;
             padding: 0 40px;
             height: 407px;
+
+            @media(min-width: $tablet) {
+                margin-bottom: 24px;
+            }
 
             .sub-length {
                 opacity: .6;

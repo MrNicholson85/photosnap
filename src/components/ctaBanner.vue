@@ -30,6 +30,7 @@ export default {
         position: relative;
         display: flex;
         background-size: cover;
+        height: 280px;
 
         &::before {
             position: absolute;
@@ -69,9 +70,13 @@ export default {
 
             @media (min-width: $tablet) {
                 grid-template-columns: 400px auto;
-            padding: 68px 0;
+                padding: 68px 0;
+                width: $tablet;
+                justify-content: space-around;
+            }
 
-            width: $container;
+            @media(min-width: $desktop) {
+                width: $container;
             }
         }
 
