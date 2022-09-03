@@ -47,6 +47,10 @@
             height: 490px;
         }
 
+        @media(min-width: $tablet) {
+            height: 650px;
+        }
+
         &__mobileImg {
             display: block;
             background-size: cover;
@@ -105,6 +109,10 @@
                 height: 490px;
                 object-fit: cover;
                 width: 100%;
+
+                @media(min-width: $tablet) {
+                    height: 650px;
+                }
             }
         }
 
