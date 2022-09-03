@@ -11,7 +11,7 @@
         <a href="#"></a>
       </template>
       <template #image>
-        <img :src="heroImage" />
+        <img :src="heroImage" alt="hero image"/>
       </template>
     </internalHero>
     <pricingTable/>

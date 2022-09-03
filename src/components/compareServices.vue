@@ -14,9 +14,9 @@
                 {{rows.title}}
             </div>
             <div class="compareServices__tiers">
-                <div class="compareServices__teirCheck"><p>Basic</p><img v-if="rows.basicTeir === true" :src="checkmark"></div>
-                <div class="compareServices__teirCheck"><p>Pro</p><img v-if="rows.proTeir === true" :src="checkmark"></div>
-                <div class="compareServices__teirCheck"><p>Businesss</p><img v-if="rows.businessTeir === true" :src="checkmark"></div>
+                <div class="compareServices__teirCheck"><p>Basic</p><img v-if="rows.basicTeir === true" :src="checkmark" alt="checkmark"></div>
+                <div class="compareServices__teirCheck"><p>Pro</p><img v-if="rows.proTeir === true" :src="checkmark" alt="checkmark"></div>
+                <div class="compareServices__teirCheck"><p>Businesss</p><img v-if="rows.businessTeir === true" :src="checkmark" alt="checkmark"></div>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
                 We’re in beta. Get your invite today!
             </div>
             <div class="ctaBanner__inviteLink">
-                <a href="#">Get an Invite</a> <img :src="arrowWhite"/>
+                <a href="#">Get an Invite</a> <img :src="arrowWhite" alt="get an invite arrow"/>
             </div>
         </div>
     </div>

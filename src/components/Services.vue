@@ -2,7 +2,7 @@
     <div class="services">
         <div v-for="item in serviceItems">
             <div class="services__items">
-                <div class="services__items-icon"><img :src="item.icon"/></div>
+                <div class="services__items-icon"><img :src="item.icon" alt="serivces icon"/></div>
                 <h3 class="services__items-title">{{item['title']}}</h3>
                 <div class="services__items-copy">{{item['copy']}}</div>
             </div>

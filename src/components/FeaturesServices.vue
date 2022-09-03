@@ -1,7 +1,7 @@
 <template>
     <div class="featServices">
         <div class="featServices__item" v-for="service in featServiceItems">
-            <div class="featServices__icon"><img :src="service.icon" /></div>
+            <div class="featServices__icon"><img :src="service.icon" alt="servicesIcons" /></div>
 
             <div class="featServices__content">
                 <div class="featServices__title h3">{{service.title}}</div>

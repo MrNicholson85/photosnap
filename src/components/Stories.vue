@@ -5,7 +5,7 @@
                 <div class="stories__content-title">{{ storyItem.title }}</div>
                 <div class="stories__content-author">by {{ storyItem.author }}</div>
                 <div class="stories__content-divider"></div>
-                <a href="">Read Story <img :src="arrowWhite"/></a>
+                <a href="">Read Story <img :src="arrowWhite" alt="stories read tory arrow icon"/></a>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <template lang="">
    <nav class="navbar-nav container">
     <div class="navbar-nav__logo-menu">
-      <router-link to="/"><img class="" :src="logoImage" /></router-link>
+      <router-link to="/"><img class="" :src="logoImage"  alt="logo"/></router-link>
       <div
         class="navbar-nav__menu-toggle"
         :class="[navToggler ? 'navbar-nav--toggle-close' : 'navbar-nav--toggle-open']"

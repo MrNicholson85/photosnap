@@ -8,10 +8,10 @@
         <p>Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.</p>
       </template>
       <template #link>
-        <a href="#">GET AN INVITE <span><img :src="arrowWhite"/></span></a>
+        <a href="#">GET AN INVITE <span><img :src="arrowWhite" alt="hero link arrow icon"/></span></a>
       </template>
       <template #image>
-        <img :src="createImage" />
+        <img :src="createImage" alt="hero image"/>
       </template>
     </Hero>
 
@@ -26,7 +26,7 @@
         <p>We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.</p>
       </template>
       <template #link>
-        <a href="#"><div>VIEW THE STORIES</div> <span><img :src="arrowBlack"/></span></a>
+        <a href="#"><div>VIEW THE STORIES</div> <span><img :src="arrowBlack" alt="black arrow icon"/></span></a>
       </template>
       <template #image>
         <div :style="{ backgroundImage: `url(${storyImage1})` }"></div>
@@ -44,7 +44,7 @@
         <p>Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.</p>
       </template>
       <template #link>
-        <a href="#"><div>GET AN INVITE</div> <span><img :src="arrowBlack"/></span></a>
+        <a href="#"><div>GET AN INVITE</div> <span><img :src="arrowBlack" alt="black arrow icon"/></span></a>
       </template>
       <template #image>
         <div :style="{ backgroundImage: `url(${storyImage2})` }"></div>

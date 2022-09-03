@@ -10,7 +10,7 @@
           <a href="#"></a>
         </template>
         <template #image>
-          <img :src="createImage" />
+          <img :src="createImage" alt="section hero image"/>
         </template>
       </Hero>
       <FeatServices/>

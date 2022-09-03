@@ -19,7 +19,7 @@
         </template>
         <template #link>
           <div>
-            <p>READ THE STORY</p> <img :src="arrowWhite" />
+            <p>READ THE STORY</p> <img :src="arrowWhite" alt="white arrow"/>
           </div>
         </template>
       </heroInternal>

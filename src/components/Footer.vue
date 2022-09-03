@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="container">
             <div class="footer__col-1">
-                <div class="footer__logo"><img :src="footerLogo"/></div>
+                <div class="footer__logo"><img :src="footerLogo" alt="footer logo"/></div>
                 <div class="footer__social-icons">
                     <div v-for="(icons, index) in footerIcons" class="footer__icons" :class="icons.title">
                         <div 
@@ -11,8 +11,8 @@
                             class="div"
                             :class="{ 'div-hover': hover }"
                         >
-                            <div v-show="!icons.active"><img :src="icons.icon_white"/></div>
-                            <div v-show="icons.active"><img :src="icons.icon_hover"/></div>
+                            <div v-show="!icons.active"><img :src="icons.icon_white" alt="white-icon"/></div>
+                            <div v-show="icons.active"><img :src="icons.icon_hover" alt="hover-icon"/></div>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
             <div class="footer__col-3">
                 <div class="footer__content">
                     <div class="footer__invite-link">
-                        <router-link to="/">GET AN INVITE</router-link> <img :src="ctaArrow"/>
+                        <router-link to="/">GET AN INVITE</router-link> <img :src="ctaArrow" alt="cta-arrow"/>
                     </div>
                     <div class="footer__copy-rights">
                         Copyright 2019. All Rights Reserved
