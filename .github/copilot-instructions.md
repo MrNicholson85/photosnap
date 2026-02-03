@@ -7,7 +7,7 @@ Vue 3 Composition API photo storytelling platform built with Vue CLI, Vue Router
 - **Framework**: Vue 3.2.13 with Composition API
 - **Routing**: Vue Router 4 (history mode)
 - **Styling**: SCSS with modular architecture (variable, typography, buttons, base)
-- **Build**: Vue CLI 5 (Node 18.x)
+- **Build**: Vue CLI 5 (Node 24.x)
 - **Commands**: `yarn serve` (dev), `yarn build` (production)
 
 ## Architecture Patterns

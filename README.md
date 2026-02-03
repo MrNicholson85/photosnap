@@ -8,7 +8,7 @@ A Vue 3 photo storytelling platform for photographers and visual storytellers. F
 - **Routing**: Vue Router 4 (history mode)
 - **Styling**: SCSS with modular architecture
 - **Build Tool**: Vue CLI 5
-- **Node Version**: 18.x
+- **Node Version**: 24.x
 
 ## Project Structure
 
