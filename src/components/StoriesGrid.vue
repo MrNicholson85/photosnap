@@ -53,7 +53,7 @@ export default {
 
         @media(min-width: $tablet) {
             grid-template-columns: repeat(2,50%);
-            width: $tablet;
+            min-width: $tablet;
         }
 
         @media(min-width: $desktop) {

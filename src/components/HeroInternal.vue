@@ -40,11 +40,11 @@
     @import '../assets/styles/variable.scss';
     
     .hero-internal {
-        width: $mobile;
+        min-width: $mobile;
         margin: 0 auto;
 
         @media(min-width: $tablet) {
-            width: $desktop;
+            max-width: $desktop;
         }
 
         &__Img {
